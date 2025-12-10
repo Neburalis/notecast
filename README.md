@@ -1,15 +1,21 @@
 # Notecast
 
-**Notecast** is a simple and minimalistic utilite to transcribe audiofiles to text and create a conspect.
+**Notecast** is a simple utility for transcribing audio files and generating a conspect.
 
-Requires nvidia cuda toolkit v12.4
+- Requires Python 3.12 (managed by `uv`)
+- Needs FFmpeg available in your `PATH`
+- Optional: NVIDIA CUDA Toolkit 12.4 for GPU acceleration
 
-You can create environment running
+## Setup with uv
+
+1. Ensure `uv` is installed: `pip install uv`
+2. Install dependencies (creates `.venv`): `uv sync`
+3. Run the app: `uv run python main.py`
+
+### CUDA wheels
+
+If you want CUDA wheels from PyTorch, install them after `uv sync`:
+
 ```
-conda env create -f environment.yml
-```
-or for CUDA/Nvidia:
-```
-conda create -n notecast -c pytorch -c nvidia pytorch torchvision torchaudio transformers python=3.12
-conda install ffmpeg customtkinter openai -c conda-forge -c bioconda
+uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```

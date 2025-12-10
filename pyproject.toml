@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "notecast"
+version = "0.1.0"
+description = "Audio transcription utility"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch",
+    "torchaudio",
+    "torchvision",
+    "transformers",
+    "torchcodec",
+    "tqdm",
+    "pillow",
+    "customtkinter",
+    "openai",
+]
+
+[tool.setuptools]
+packages = ["ui", "transcription", "utils"]
+py-modules = ["main"]
+
+[tool.setuptools.package-data]
+ui = ["assets/logo.ico"]
+
